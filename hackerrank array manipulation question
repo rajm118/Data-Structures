@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    long int N,K,p,q,sum,i,j;
+    long int max=0,temp=0;
+
+    cin>>N>>K;
+    long int *arr=new long int[N+1]();
+
+    for(i=0;i<K;i++)
+    {
+        cin>>p>>q>>sum;
+        arr[p]+=sum;
+        if((q+1)<=N)
+        { 
+            arr[q+1]-=sum;
+        }
+    }
+
+    for(i=1;i<=N;i++)
+    {
+       temp+=arr[i];
+       if(max<temp) max=temp;
+    }
+
+    cout<<max;
+    return 0;
+}
